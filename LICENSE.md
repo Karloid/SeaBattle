@@ -3,3 +3,5 @@ public class HelloWorld
     Sustem.out.print("Hello world");
   }
 }
+
+test license
