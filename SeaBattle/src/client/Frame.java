@@ -1,37 +1,21 @@
+package client;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.geom.Rectangle2D;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import javax.swing.*;
-
-public class SeaBattleClient {
-    public static Frame frame;
-    public static void main(String[] args)
-    {
-        EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                frame = new Frame();
-                frame.toFront();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
-        });
-    }
-}
 
 class Frame extends JFrame
 {
     private static final int DEFAULT_WIDTH = 600, DEFAULT_HEIGHT = 300;
-    private static final String Name = "SeaBattleClient1";
+    private static final String Name = "Sea Battle Client";
     private static JPanel panel;
     private static boolean createWarship;
     private BufferedReader reader;
@@ -58,11 +42,11 @@ class Frame extends JFrame
         add(panel);
 
 
-        JButton NewGame = new JButton("Íîâàÿ èãðà");
+        JButton NewGame = new JButton("New game!");
         NewGame.setBounds(450, 10, 130, 30);
         panel.add(NewGame);
 
-        JButton button2 = new JButton("Â áîé!");
+        JButton button2 = new JButton("createWarship ?:)");
         button2.setBounds(450, 60, 130, 30);
         panel.add(button2);
 
@@ -170,25 +154,5 @@ class Frame extends JFrame
                 e.printStackTrace();
             }
         }
-    }
-}
-
-class Panel extends JPanel
-{
-    public static void paintSquare(Graphics g, int x, int y, int w, int h)
-    {
-        Graphics2D g2 = (Graphics2D) g;
-
-        Rectangle2D field = new Rectangle2D.Double(x, y, w, h);
-        g2.draw(field);
-    }
-
-    public static void paintSquare2(Graphics g, int x, int y, int w, int h, Color c)
-    {
-        Graphics2D g2 = (Graphics2D) g;
-
-        Rectangle2D field = new Rectangle2D.Double(x, y, w, h);
-        g2.setColor(c);
-        g2.fill(field);
     }
 }
